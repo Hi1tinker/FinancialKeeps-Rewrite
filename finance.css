@@ -1,0 +1,89 @@
+body, html{
+	font-size: 12pt;
+	font-family: 'Artifika', serif;
+	overflow-x: hidden;
+	background-color: white;
+}
+
+.firstSection {
+	background-image: url("http://res.cloudinary.com/frontndev/image/upload/c_scale,h_1020,w_1920/v1501014868/warren-wong-277326_ova73p.jpg");
+	background-position: center;
+	background-repeat: no-repeat;
+	height: 40em;
+}
+
+.logo {
+	font-family: 'Plaster', cursive;
+	font-size: 18pt;
+	border: 2px solid #000000;
+	border-radius: 15px;
+	padding: 6px;
+}
+
+.navbar {
+	background: 0 0;
+}
+
+.navbar-brand {
+	font-size: 16pt;
+	color: #000000 !important;
+}
+
+h2 {
+	font-size: 23pt;
+	text-align: center;
+}
+
+.loginForm {
+	margin-top: 100px;
+}
+
+.loginTitle {
+	padding-bottom: 20px;
+}
+
+.inputBox {
+	height: 44px;
+	width: 100%;
+}
+
+.rememberMeCheckBox, input[type=checkbox] {
+	color: white !important;
+}
+
+.loginBtn {
+	margin-bottom: 15px;
+}
+
+li {
+	list-style-type: none;
+	text-align: center;
+}
+
+hr {
+	margin-top: 0;
+}
+
+.secondSection-Title {
+	padding: 15px;
+}
+
+.secondSection {
+	margin-bottom: 50px;
+}
+
+.footer {
+	position: relative !important;
+	padding: 10px;
+	background-color: gray;
+}
+
+.footer a {
+	color: #000000;
+}
+
+@media screen and (max-width: 320px) {
+	.firstSection {
+		height: 50em;
+	}
+}

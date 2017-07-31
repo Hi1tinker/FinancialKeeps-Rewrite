@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link rel="stylesheet" href="CSS/finance.css">
+	
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	
+<style>
+	a .fa-plus-square {
+		font-size: 26pt;
+		color: green;
+		margin-bottom: 20px;
+	}
+	
+	.fa-trash-o {
+		padding-left: 10px;
+		font-size: 16pt;
+		cursor: pointer;
+	}
+</style>
+</head>
+<body>
+<nav class="navbar navbar-default">
+  <div class="container">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+     
+      <a class="navbar-brand" href="finance-rewrite.html"><span class="logo">FK</span> Financial Keeps</a>
+    </div>
+    
+      <ul class="nav navbar-nav navbar-right">
+<li><a href="#" id="loginBtn"><button class="btn btn-success"><i class="fa fa-user-circle-o" aria-hidden="true"></i> Mark White</button></a></li>
+<!-- <script>
+var loginBtn = document.getElementById("loginBtn");
+loginBtn.onclick = function() {
+	window.location = "profilepage.html";
+}
+</script> -->
+<li><a href="#" id="signoutBtn"><button class="btn btn-info"><i class="fa fa-sign-out" aria-hidden="true"></i> Sign Out</button></a></li> 
+<script>
+var signoutBtn = document.getElementById("signoutBtn");
+signoutBtn.onclick = function() {
+	window.location = "finance-rewrite.html";
+}
+</script>       
+      </ul>
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
+
+<div class="container">
+<div class="input-group">
+  <label>Starting Amount: <input id="money" type="number" onkeyup="calc() class="form-control"></label>
+  
+  <p>To Subtract an amount place a minus(-) sign infront of the dollar amount.</p>
+  
+  <a id="addRow" href="#"><i class="fa fa-plus-square" aria-hidden="true"></i></a>
+</div>
+
+<table id="myTable">
+	<thead>
+	<tr>
+		<th>Bill Info</th>
+		<th>Bill Amount</th>
+		<th>Date</th>
+		<th>Comment</th>
+	</tr>
+	</thead>
+	<tbody>
+	<tr class="myCells">
+        <td><input type="text"    class="billInfo"></td>
+		<td><input type="number"  class="billAmt" id="billAmt" onkeyup="calc()"></td>
+		<td><input type="date" 	  class="date"></td>
+		<td><input type="text"    class="commentBox"></td>
+	</tr>
+	</tbody>
+</table>
+   
+<input type="hidden" id="total" name="total" value="0">
+<p><b>Ending Amount: &#36; <span id="totalAmt" onchange="colorChange(this)">0</span></b></p>
+
+
+</div>
+
+<script type="text/javascript">
+var insertRow = document.getElementById("addRow");
+insertRow.onclick = function() {
+	var x = document.getElementById("myTable");
+	var row = x.insertRow(x.rows.length);
+	
+		var cell = row.insertCell(0);
+		var a = document.createElement("input");
+			a.setAttribute("type","text");
+			a.setAttribute("class","billInfo");
+			cell.appendChild(a);
+			
+	    var cell1 = row.insertCell(1);
+		var b = document.createElement("input");
+			b.setAttribute("type","number");
+			b.setAttribute("class","billAmt");
+			b.setAttribute("onkeyup","calc(this)");
+			cell1.appendChild(b);
+			
+		var cell2 = row.insertCell(2);
+		var c = document.createElement("input");
+			c.setAttribute("type","date");
+			c.setAttribute("class","date");
+			cell2.appendChild(c);
+			
+		var cell3 = row.insertCell(3);
+		var d = document.createElement("input");
+			d.setAttribute("type","text");
+			d.setAttribute("class","commentBox");
+			cell3.appendChild(d); 
+			
+		var cell4 = row.insertCell(4);
+		var	e = document.createElement("h3");
+		e.setAttribute("class","fa fa-trash-o");
+		e.addEventListener("click", removeRow);
+		e.addEventListener("click", calc);
+		cell4.appendChild(e);
+}
+
+var myElement = document.getElementById('totalAmt');
+function colorChange() {
+	if(myElement.innerHTML <= 0) {
+	totalAmt.style.color = 'red'; 
+	} else {
+	totalAmt.style.color = 'green';
+  }
+}
+	
+function calc() {
+    var money = parseInt(document.querySelector('#money').value) || 0;
+    var bills = document.querySelectorAll('table tr input.billAmt') ;
+    var billTotal = 0;
+  
+    for (i = 0; i < bills.length; i++) {
+      billTotal += parseInt(bills[i].value) || 0;
+    }
+  
+    totalAmt.innerHTML = money + billTotal;
+	colorChange();
+}
+
+function removeRow(e) {
+  e.target.parentNode.parentNode.remove();
+}
+</script>
+
+
+
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</body>
+</html>
